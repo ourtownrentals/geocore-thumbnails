@@ -27,6 +27,8 @@ class addon_thumbnails_setup extends addon_thumbnails_info
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
       `job` enum('add_thumbnail','remove_thumbnail','add_size','remove_size') NOT NULL,
       `target` int(4) unsigned NOT NULL,
+      `status` enum('pending','running','failed', 'success') NOT NULL DEFAULT 'pending',
+      `error` varchar(255) NULL DEFAULT NULL,
       PRIMARY KEY (`id`)
       ) DEFAULT CHARSET=utf8;";
 
