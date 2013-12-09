@@ -6,8 +6,21 @@ class addon_thumbnails_admin extends addon_thumbnails_info
 {
   public function init_pages ($menuName)
   {
+    menu_page::addonAddPage('addon_thumbnails_status','','Status', $this->name);
     menu_page::addonAddPage('addon_thumbnails_settings','','Settings', $this->name);
     menu_page::addonAddPage('addon_thumbnails_thumbnails','','Sizes and Tags', $this->name);
+  }
+
+  public function display_addon_thumbnails_status ()
+  {
+    $util = geoAddon::getUtil($this->name);
+    $db = true;
+    include(GEO_BASE_DIR . 'get_common_vars.php');
+    $util->db = $db;
+
+    $tpl_vars = array('jobs' => $util->getJobs());
+
+    geoView::getInstance()->setBodyTpl('admin/status.tpl', $this->name)->setBodyVar($tpl_vars);
   }
 
   public function display_addon_thumbnails_settings ()
