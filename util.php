@@ -281,4 +281,28 @@ class addon_thumbnails_util extends addon_thumbnails_info
 
     return $error;
   }
+
+  public function core_notify_image_insert ($vars) {
+    $db = true;
+    include(GEO_BASE_DIR . 'get_common_vars.php');
+    $this->db = $db;
+
+    $job = array(
+      'job' => 'add_thumbnails',
+      'target' => $vars['id']
+    );
+    $this->queueJobs(array($job));
+  }
+
+  public function core_notify_image_remove ($imageId) {
+    $db = true;
+    include(GEO_BASE_DIR . 'get_common_vars.php');
+    $this->db = $db;
+
+    $job = array(
+      'job' => 'remove_thumbnails',
+      'target' => $imageId
+    );
+    $this->queueJobs(array($job));
+  }
 }
