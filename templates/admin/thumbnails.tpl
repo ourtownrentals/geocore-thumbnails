@@ -11,6 +11,7 @@
             <th>Size ID</th>
             <th>Max Width</th>
             <th>Max Height</th>
+            <th>Thumbnail Quality</th>
           </tr>
         </thead>
         <tbody style="text-align: center;">
@@ -20,9 +21,11 @@
             <td class="{$row_color}">{$size.id}</td>
             <td class="{$row_color}">{$size.width}</td>
             <td class="{$row_color}">{$size.height}</td>
+            <td class="{$row_color}">{$size.quality}</td>
             <input type="hidden" name="sizes[{$size.id}][id]" value="{$size.id}" />
             <input type="hidden" name="sizes[{$size.id}][width]" value="{$size.width}" />
             <input type="hidden" name="sizes[{$size.id}][height]" value="{$size.height}" />
+            <input type="hidden" name="sizes[{$size.id}][quality]" value="{$size.quality}" />
           </tr>
         {/foreach}
           <tr class="{cycle values='row_color1,row_color2'}">
@@ -30,6 +33,7 @@
             <td class="{$row_color}">{$next_size_id}</td>
             <td class="{$row_color}"><input type="text" size="5" maxlength="5" name="sizes[new][width]" /></td>
             <td class="{$row_color}"><input type="text" size="5" maxlength="5" name="sizes[new][height]" /></td>
+            <td class="{$row_color}"><input type="text" size="5" maxlength="5" name="sizes[new][quality]" /></td>
           </tr>
         </tbody>
       </table>

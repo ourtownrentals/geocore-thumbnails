@@ -195,7 +195,7 @@ class addon_thumbnails_admin extends addon_thumbnails_info
       $jobs = array();
 
       foreach ($new_sizes as $key => $size) {
-        if ($key == 'new' && $size['width'] && $size['height']) {
+        if ($key == 'new' && $size['width'] && $size['height'] && $size['quality']) {
           $size['id'] = $reg->next_size_id;
           $reg->next_size_id = $size['id'] + 1;
 
@@ -227,7 +227,7 @@ class addon_thumbnails_admin extends addon_thumbnails_info
     $errors = array();
 
     // fail if empty field
-    if (!$input['width'] || !$input['height']) {
+    if (!$input['width'] || !$input['height'] || !$input['quality']) {
       array_push($errors, 'Empty field.');
     }
 
