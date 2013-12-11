@@ -25,7 +25,7 @@ class addon_thumbnails_setup extends addon_thumbnails_info
 
     $sql[] = "CREATE TABLE IF NOT EXISTS " . self::JOBS_TABLE . " (
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-      `job` enum('add_thumbnail','remove_thumbnail','add_size','remove_size') NOT NULL,
+      `job` enum('add_thumbnails','remove_thumbnails','add_size','remove_size') NOT NULL,
       `target` int(4) unsigned NOT NULL,
       `status` enum('pending','running','failed', 'success') NOT NULL DEFAULT 'pending',
       `error` varchar(255) NULL DEFAULT NULL,
