@@ -25,3 +25,17 @@
   {/foreach}
   </tbody>
 </table>
+
+<form action="" method="post">
+  <div class="center">
+    <input type="hidden" name="action" value="prune_successful" />
+    <input type="submit" name="auto_save" class="mini_button" value="Prune Successful Jobs" />
+  </div>
+</form>
+
+<form action="" method="post">
+  <div class="center">
+    <input type="hidden" name="action" value="prune_failed" />
+    <input type="submit" name="auto_save" class="mini_button" value="Prune Failed Jobs" />
+  </div>
+</form>

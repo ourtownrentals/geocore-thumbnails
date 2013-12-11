@@ -23,6 +23,29 @@ class addon_thumbnails_admin extends addon_thumbnails_info
     geoView::getInstance()->setBodyTpl('admin/status.tpl', $this->name)->setBodyVar($tpl_vars);
   }
 
+  public function update_addon_thumbnails_status ()
+  {
+    if (isset($_POST['action'])) {
+      $action = $_POST['action'];
+    } else {
+      return false;
+    }
+
+    $util = geoAddon::getUtil($this->name);
+    $db = true;
+    include(GEO_BASE_DIR . 'get_common_vars.php');
+    $util->db = $db;
+
+    switch ($action) {
+      case 'prune_successful':
+        $util->removeJobs('success');
+        break;
+      case 'prune_failed':
+        $util->removeJobs('failed');
+        break;
+    }
+  }
+
   public function display_addon_thumbnails_settings ()
   {
     $reg = geoAddon::getRegistry($this->name);

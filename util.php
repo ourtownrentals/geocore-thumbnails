@@ -29,4 +29,14 @@ class addon_thumbnails_util extends addon_thumbnails_info
 
     return true;
   }
+
+  /**
+  *
+  */
+  public function removeJobs ($status)
+  {
+    $sql = "DELETE FROM " . self::JOBS_TABLE . " WHERE `status` = '$status'";
+    $this->db->Execute($sql);
+    return true;
+  }
 }
