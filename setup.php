@@ -12,7 +12,7 @@ class addon_thumbnails_setup extends addon_thumbnails_info
     $db = $cron = $admin = true;
     include(GEO_BASE_DIR . 'get_common_vars.php');
 
-    $sql[] =  "CREATE TABLE IF NOT EXISTS " . self::IMAGES_TABLE . " (
+    $sql[] = "CREATE TABLE IF NOT EXISTS " . self::THUMBNAILS_TABLE . " (
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
       `image_id` int(10) unsigned NOT NULL,
       `size_id` int(3) unsigned NOT NULL,
@@ -23,7 +23,7 @@ class addon_thumbnails_setup extends addon_thumbnails_info
       UNIQUE KEY `unique` (`image_id`,`size_id`)
       ) DEFAULT CHARSET=utf8;";
 
-    $sql[] =  "CREATE TABLE IF NOT EXISTS " . self::JOBS_TABLE . " (
+    $sql[] = "CREATE TABLE IF NOT EXISTS " . self::JOBS_TABLE . " (
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
       `job` enum('add_thumbnail','remove_thumbnail','add_size','remove_size') NOT NULL,
       `target` int(4) unsigned NOT NULL,
@@ -61,7 +61,7 @@ class addon_thumbnails_setup extends addon_thumbnails_info
     $db = $cron = $admin = true;
     include(GEO_BASE_DIR . 'get_common_vars.php');
 
-    $sql[] = 'DROP TABLE IF EXISTS ' . self::IMAGES_TABLE;
+    $sql[] = 'DROP TABLE IF EXISTS ' . self::THUMBNAILS_TABLE;
     $sql[] = 'DROP TABLE IF EXISTS ' . self::JOBS_TABLE;
 
     $errors = $this->executeSQL($sql, $db);

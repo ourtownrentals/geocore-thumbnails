@@ -28,7 +28,7 @@ class addon_thumbnails_info
     'Browse_module_display_browse_result_addRow'
   );
 
-  const IMAGES_TABLE = '`geodesic_addon_thumbnails_images`';
+  const THUMBNAILS_TABLE = '`geodesic_addon_thumbnails_thumbnails`';
   const JOBS_TABLE = '`geodesic_addon_thumbnails_jobs`';
   const RUN_JOBS_CRON = 'thumbnails:run_jobs';
 }
